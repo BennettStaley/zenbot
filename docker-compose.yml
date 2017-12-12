@@ -14,9 +14,15 @@ server:
 
 mongodb:
   image: mongo:latest
+  tty: true  
   volumes_from:
     - mongodb-data
-  command: mongod --smallfiles
+  command: mongod --bind_ip_all --smallfiles
+  # ports:
+  #   - '27017:27017'
+  #   - '27018:27018'
+  #   - '27019:27019'
+  #   - '28017:28017'
 
 mongodb-data:
   image: mongo:latest
@@ -26,7 +32,7 @@ mongodb-data:
 
 # Remove below comments to use this container. "adminMongo is a Web based user interface (GUI) to handle all your MongoDB connections/databases needs."
 #
-#adminmongo:
+# adminmongo:
 #  image: mrvautin/adminmongo
 #  links:
 #    - mongodb
