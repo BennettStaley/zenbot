@@ -18,6 +18,11 @@ mongodb:
   volumes_from:
     - mongodb-data
   command: mongod --bind_ip_all --smallfiles
+  # ports:
+  #   - '27017:27017'
+  #   - '27018:27018'
+  #   - '27019:27019'
+  #   - '28017:28017'
 
 mongodb-data:
   image: mongo:latest
